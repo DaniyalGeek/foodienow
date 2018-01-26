@@ -1,0 +1,36 @@
+<html ng-app="firstApp">
+	<head>
+		<!-- Libraries -->
+		<script src="./lib/angular.min.js" type="text/javascript" ></script>
+		<script src="./lib/angular-restmod-bundle.min.js" type="text/javascript"></script>
+		<script src="./lib/angular-ui-router.min.js" type="text/javascript" ></script>
+
+		<title>CRUD in AngularJS + ExpressJS</title>
+		<link href="_assets/css/style.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body >
+			<a href="assignment" >Assignment</a></br> <hr>
+			<div id="left-nav">
+				<ol>
+					<li><a ui-sref="create" >Add User</a></li>
+					<li><a ui-sref="find" >View All Users</a></li>
+					<li><a ui-sref="findone" >find Single</a></li>
+					<li><a ui-sref="delete" >Delete</a></li>
+					
+				</ol>
+			</div>
+			<div id="content">
+				<ui-view></ui-view>
+			</div>
+		
+
+	
+		
+		<!--Custom AngularJS Code-->
+		
+		<!-- Routing -->
+		<script src="./js/app.js" type="text/javascript" ></script>
+		
+	
+	</body>
+</html>
