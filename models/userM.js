@@ -10,7 +10,20 @@ module.exports = {
  						    "user_image":"string",
  						    "user_dob":"string",
  						    "sex":"string",
- 						    "address":"string"
- 						    
+ 						    "address_lat":"string",
+ 						    "address_long":"string",
+ 						    "likes": {
+                                type: 'array',
+                                defaultsTo: [],
+                            },
+                            "donts": {
+                                type: 'array',
+                                defaultsTo: [],
+                            },
+                            "likedObject": {
+                                type: 'object',
+                                defaultsTo: {},
+                            }
+                            
  						}   
  					};

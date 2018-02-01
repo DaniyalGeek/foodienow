@@ -9,7 +9,11 @@
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "fb-messenger": "^1.2.0",
+    "geo-nearby": "^2.0.1",
+    "geolib": "^2.0.24",
+    "latlon-geohash": "^1.1.0",
     "path": "^0.12.7",
+    "request": "^2.83.0",
     "sails-mongo": "^0.12.2",
     "sails-mysql": "^0.10.11",
     "waterline": "^0.10.21"
