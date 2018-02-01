@@ -1,6 +1,6 @@
 var dani =function (){ 
  					var get=function (req,res){ 
- 								db('hoteldata').find({ "Restaurant_Name_Catergory_Menu_Item_Description": [/avocado/,/cheese/]}).exec(function (err, data){  
+ 								db('hoteldata').find().exec(function (err, data){  
  									if(err){  
  										res.status(500).send(err); 
  									}else{  

@@ -5,7 +5,7 @@
     <link rel="icon" type="image/png" href="assets/img/favicon.ico">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-    <title>Send Message</title>
+    <title>All Users</title>
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -46,7 +46,7 @@
             </div>
 
             <ul class="nav">
-                <li class="active">
+                <li>
                     <a href="index.html">
                         <i class="pe-7s-mail"></i>
                         <p>Send Message</p>
@@ -64,7 +64,7 @@
                         <p>All Restaurants</p>
                     </a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="allusers.html">
                         <i class="pe-7s-user"></i>
                         <p>All Users</p>
@@ -114,27 +114,23 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Send Message</h4>
+                                <h4 class="title">All Users</h4>
                             </div>
-                            <div class="content">
-                                <form>
-                                    <div class="row">
+                            <div class="content table-responsive table-full-width">
+                                <table class="table table-hover table-striped">
+                                    <thead>
+                                    <th>Name</th>
+                                    <th>Sex</th>
+                                    <th>Likes</th>
+                                    <th>Dislikes</th>
+                                    <th>Latitude</th>
+                                    <th>Longitude</th>
+                                    <th>Image</th>
+                                    </thead>
+                                    <tbody id="data">
+                                    </tbody>
+                                </table>
 
-                                        <div class="row center-block">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label>Message</label>
-                                                    <textarea rows="5"
-                                                              class="form-control" id="message" placeholder="Here can be your Message" ></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <button id="btn" type="button" class="btn btn-info btn-fill center-block">Send Message</button>
-                                    </div>
-
-
-                                </form>
                             </div>
                         </div>
                     </div>
@@ -164,35 +160,68 @@
 <script src="assets/js/bootstrap-notify.js"></script>
 
 <!--  Google Maps Plugin    -->
-
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 
 <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
 <script src="assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
 
 <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 <script src="assets/js/demo.js"></script>
+
 <script>
-    $('#btn').click(function () {
-        var message=$("#message").val();
-        var obj={message:message
-        };
-       // var jsonobj=JSON.stringify(obj);
-        //console.log(obj);
+
+    function deleteitem(el) {
         $.ajax({
-            header:{
-                "Content-Type":"application/json"
+            url:'https://foodienow-withease.c9users.io/user/'+el.id,
+            headers: {
+                'Content-Type':'application/x-www-form-urlencoded'
             },
-            url:'https://foodienow-withease.c9users.io/sendall',
-            type:'post'
+            type:'delete'
             ,
-            data:obj,
             success:function (data) {
-               // console.log(data);
+                //console.log(data);
+                window.location="allusers.html";
             },error: function( jqXhr, textStatus, errorThrown ){
-                //console.log( "saa"+errorThrown+textStatus+jqXhr );
+                //console.log( "saa"+errorThrown );
             }
         });
-    })
-</script>
 
+    }
+    $.ajax({
+        url:'https://foodienow-withease.c9users.io/user',
+        dataType:'json',
+        type:'get',
+        cache:false,
+        success:function (data) {
+            var rows;
+            $.each(data, function (i, item) {
+                var delbtn='' +
+                    ' <button class="btn btn-info btn-fill" id="'+item.id+'" onclick="deleteitem(this)">Delete User</button>';
+                var likes="";
+                var img='' +
+                    ' <img src="'+item.user_image+'" alt="no" width="100" height="100" />';
+                $.each(item.likes,function (likei,likeitem) {
+                    likes +=likeitem+", ";
+                });
+                var dislikes="";
+                $.each(item.donts,function (donei,dontitem) {
+                    dislikes +=dontitem+", ";
+                });
+                rows += "<tr>"
+                    + "<td>" + item.user_name + "</td>"
+                    + "<td>" + item.sex + "</td>"
+                    + "<td>" + likes + "</td>"
+                    + "<td>" + dislikes + "</td>"
+                    + "<td>" + item.address_lat+ "</td>"
+                    + "<td>" + item.address_long+ "</td>"
+                    + "<td>" + img+ "</td>"
+                    + "<td>" + delbtn+ "</td>"
+                    + "</tr>";
+            });
+            $('#data').append(rows);
+
+
+        }
+    });
+</script>
 </html>

@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="assets/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Update Restaurant</title>
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+
+    <!-- Bootstrap core CSS     -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Animation library for notifications   -->
+    <link href="assets/css/animate.min.css" rel="stylesheet"/>
+
+    <!--  Light Bootstrap Table core CSS    -->
+    <link href="assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>
+
+    <!--     Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="sidebar" data-color="purple" data-image="assets/img/sidebar-5.jpg">
+
+        <!--
+
+            Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
+            Tip 2: you can also add an image using data-image tag
+
+        -->
+
+        <div class="sidebar-wrapper">
+            <div class="logo">
+                <a href="#" class="simple-text">
+                    Welcome
+                </a>
+            </div>
+
+            <ul class="nav">
+                <li>
+                    <a href="index.html">
+                        <i class="pe-7s-mail"></i>
+                        <p>Send Message</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="addnewrestaurant.html">
+                        <i class="pe-7s-plus"></i>
+                        <p>Add new Restaurant</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="allrestaurants.html">
+                        <i class="pe-7s-note2"></i>
+                        <p>All Restaurants</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="allusers.html">
+                        <i class="pe-7s-user"></i>
+                        <p>All Users</p>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-panel">
+        <nav class="navbar navbar-default navbar-fixed">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Dashboard</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-dashboard"></i>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="">
+                                Account
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Details</h4>
+                            </div>
+                            <div class="content">
+                                <form>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Restaurant Name</label>
+                                                <input type="text" id="Restaurant_Name_name" class="form-control"  >
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Restaurant Street</label>
+                                                <input type="text" id="Restaurant_Name_Street" class="form-control"  >
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Restaurant City</label>
+                                                <input type="text" id="Restaurant_city" class="form-control"  >
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>Restaurant State</label>
+                                                <input type="text" id="Restaurant_state" class="form-control"  >
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>Restaurant Zip</label>
+                                                <input type="text" id="Restaurant_zip" class="form-control"  >
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label>Category Name</label>
+                                                <input type="text" id="Restaurant_Name_Catergory_name" class="form-control"  >
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Menu Item Name</label>
+                                                <input type="text" id="Restaurant_Name_Catergory_Menu_Item_name" class="form-control"  >
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Menu Item Price</label>
+                                                <input type="text" id="Restaurant_Name_Catergory_Menu_Item_Price" class="form-control"  >
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-10">
+                                                <div class="form-group">
+                                                    <label>menu Item Description</label>
+                                                    <textarea rows="5"
+                                                              class="form-control" id="Restaurant_Name_Catergory_Menu_Item_Description" placeholder="Here can be your description" value="Mike">Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Restaurant Telephone</label>
+                                                <input type="text" id="Restaurant_Name_Telephone" class="form-control"  >
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Restaurant Price</label>
+                                                <input type="text" id="Restaurant_Name_Price" class="form-control"  >
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Restaurant Category</label>
+                                                <input type="text" id="Restaurant_Name_Catergory" class="form-control"  >
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Restaurant Address</label>
+                                                <input type="text" id="Restaurant_Name_Address" class="form-control"  >
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Restaurant Address Url</label>
+                                                <input type="text" id="Restaurant_Name_Address_url" class="form-control"  >
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Restaurant Website</label>
+                                                <input type="text" id="Restaurant_Name_Website" class="form-control"  >
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Restaurant Latitude</label>
+                                                <input type="text" id="Restaurant_lat" class="form-control"  >
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Restaurant Longitude</label>
+                                                <input type="text" id="Restaurant_long" class="form-control"  >
+                                            </div>
+                                        </div>
+                                        <button id="btn" type="button" class="btn btn-info btn-fill pull-right" style="margin-right: 25px;
+margin-top: 25px">Update</button>
+                                    </div>
+
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <footer class="footer">
+
+        </footer>
+
+    </div>
+</div>
+
+
+</body>
+
+<!--   Core JS Files   -->
+<script src="assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
+<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+
+<!--  Charts Plugin -->
+<script src="assets/js/chartist.min.js"></script>
+
+<!--  Notifications Plugin    -->
+<script src="assets/js/bootstrap-notify.js"></script>
+
+<!--  Google Maps Plugin    -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+
+<!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
+<script src="assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
+
+<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
+<script src="assets/js/demo.js"></script>
+<script>
+    var id = window.location.href.split('?id=');
+    //console.log("id"+id[1]);
+    $.ajax({
+        url:'https://foodienow-withease.c9users.io/hoteldata/'+id[1],
+        dataType:'json',
+        type:'get',
+        cache:false,
+        success:function (data) {
+            //console.log(data);
+            var arr=data.Restaurant_Name_City_State_Zip.split(',');
+            $("#Restaurant_Name_Website").val(data.Restaurant_Name_Website);
+            $("#Restaurant_city").val([0]);
+            $("#Restaurant_state").val(arr[1]);
+            $("#Restaurant_zip").val(arr[2]);
+            $("#Restaurant_Name_name").val(data.Restaurant_Name_name);
+            $("#Restaurant_Name_Street").val(data.Restaurant_Name_Street);
+            $("#Restaurant_Name_Street").val(data.Restaurant_Name_Street);
+            $("#Restaurant_Name_Catergory_name").val(data.Restaurant_Name_Catergory_name);
+            $("#Restaurant_Name_Catergory_Menu_Item_name").val(data.Restaurant_Name_Catergory_Menu_Item_name);
+            $("#Restaurant_Name_Catergory_Menu_Item_Price").val(data.Restaurant_Name_Catergory_Menu_Item_Price);
+            $("#Restaurant_Name_Catergory_Menu_Item_Description").val(data.Restaurant_Name_Catergory_Menu_Item_Description);
+            $("#Restaurant_Name_Telephone").val(data.Restaurant_Name_Telephone);
+            $("#Restaurant_Name_Address").val(data.Restaurant_Name_Address);
+            $("#Restaurant_Name_Address_url").val(data.Restaurant_Name_Address_url);
+            $("#Restaurant_Name_Website").val(data.Restaurant_Name_Website);
+            $("#Restaurant_Name_Price").val(data.Restaurant_Name_Price);
+            $("#Restaurant_Name_Catergory").val(data.Restaurant_Name_Catergory);
+            $("#Restaurant_lat").val(data.Restaurant_lat);
+            $("#Restaurant_long").val(data.Restaurant_long);
+        }
+    });
+    $('#btn').click(function () {
+        var Restaurant_Name_name=$("#Restaurant_Name_name").val();
+        var Restaurant_Name_Street=$("#Restaurant_Name_Street").val();
+        var Restaurant_Name_Catergory_name=$("#Restaurant_Name_Catergory_name").val();
+        var Restaurant_Name_Catergory_Menu_Item_name=$("#Restaurant_Name_Catergory_Menu_Item_name").val();
+        var Restaurant_Name_Catergory_Menu_Item_Price=$("#Restaurant_Name_Catergory_Menu_Item_Price").val();
+        var Restaurant_Name_Catergory_Menu_Item_Description=$("#Restaurant_Name_Catergory_Menu_Item_Description").val();
+        var Restaurant_Name_Restaurant=Restaurant_Name_name;
+        var Restaurant_Name_Telephone=$("#Restaurant_Name_Telephone").val();
+        var Restaurant_Name_Address=$("#Restaurant_Name_Address").val();
+        var Restaurant_Name_Address_url=$("#Restaurant_Name_Address_url").val();
+        var Restaurant_Name_Website=$("#Restaurant_Name_Website").val();
+        var Restaurant_Name_Price=$("#Restaurant_Name_Price").val();
+        var Restaurant_Name_Catergory=$("#Restaurant_Name_Catergory").val();
+        var Restaurant_lat=$("#Restaurant_lat").val();
+        var Restaurant_long=$("#Restaurant_long").val();
+        var Restaurant_Name_City_State_Zip=$("#Restaurant_city").val()+', '+
+            $("#Restaurant_state").val()+', '+$("#Restaurant_zip").val();
+        var obj={"Restaurant_Name_name":Restaurant_Name_name,
+            "Restaurant_Name_Street":Restaurant_Name_Street,
+            "Restaurant_Name_Catergory_name":Restaurant_Name_Catergory_name,
+            "Restaurant_Name_Catergory_Menu_Item_name":Restaurant_Name_Catergory_Menu_Item_name,
+            "Restaurant_Name_Catergory_Menu_Item_Price":Restaurant_Name_Catergory_Menu_Item_Price,
+            "Restaurant_Name_Catergory_Menu_Item_Description":Restaurant_Name_Catergory_Menu_Item_Description,
+            "Restaurant_Name_Restaurant":Restaurant_Name_name,
+            "Restaurant_Name_Telephone":Restaurant_Name_Telephone,
+            "Restaurant_Name_Address":Restaurant_Name_Address,
+            "Restaurant_Name_Address_url":Restaurant_Name_Address_url,
+            "Restaurant_Name_Website":Restaurant_Name_Website,
+            "Restaurant_Name_Price":Restaurant_Name_Price,
+            "Restaurant_Name_Catergory":Restaurant_Name_Catergory,
+            "Restaurant_lat":Restaurant_lat,
+            "Restaurant_long":Restaurant_long,
+            "Restaurant_Name_City_State_Zip":Restaurant_Name_City_State_Zip
+        };
+        $.ajax({
+            url:'https://foodienow-withease.c9users.io/hoteldata/'+id[1],
+            headers: {
+                'Content-Type':'application/x-www-form-urlencoded'
+            },
+            type:'put'
+            ,
+            data:obj,
+            success:function (data) {
+                console.log(data);
+            },error: function( jqXhr, textStatus, errorThrown ){
+                console.log( "saa"+errorThrown );
+            }
+        });
+    })
+</script>
+
+</html>

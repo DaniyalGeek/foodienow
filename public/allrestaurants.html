@@ -5,7 +5,7 @@
     <link rel="icon" type="image/png" href="assets/img/favicon.ico">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-    <title>Send Message</title>
+    <title>All Restaurants</title>
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -13,6 +13,7 @@
 
     <!-- Bootstrap core CSS     -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+
 
     <!-- Animation library for notifications   -->
     <link href="assets/css/animate.min.css" rel="stylesheet"/>
@@ -46,7 +47,7 @@
             </div>
 
             <ul class="nav">
-                <li class="active">
+                <li>
                     <a href="index.html">
                         <i class="pe-7s-mail"></i>
                         <p>Send Message</p>
@@ -58,7 +59,7 @@
                         <p>Add new Restaurant</p>
                     </a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="allrestaurants.html">
                         <i class="pe-7s-note2"></i>
                         <p>All Restaurants</p>
@@ -114,27 +115,21 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Send Message</h4>
+                                <h4 class="title">All Restuarants</h4>
                             </div>
-                            <div class="content">
-                                <form>
-                                    <div class="row">
+                            <div class="content table-responsive table-full-width">
+                                <table class="table table-hover table-striped">
+                                    <thead>
+                                    <th>Restaurant Name</th>
+                                    <th>Restaurant Street</th>
+                                    <th>Category Name</th>
+                                    <th>Item Name</th>
+                                    <th>Item Price</th>
+                                    </thead>
+                                    <tbody id="data">
+                                    </tbody>
+                                </table>
 
-                                        <div class="row center-block">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label>Message</label>
-                                                    <textarea rows="5"
-                                                              class="form-control" id="message" placeholder="Here can be your Message" ></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <button id="btn" type="button" class="btn btn-info btn-fill center-block">Send Message</button>
-                                    </div>
-
-
-                                </form>
                             </div>
                         </div>
                     </div>
@@ -172,27 +167,73 @@
 <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 <script src="assets/js/demo.js"></script>
 <script>
-    $('#btn').click(function () {
-        var message=$("#message").val();
-        var obj={message:message
-        };
-       // var jsonobj=JSON.stringify(obj);
-        //console.log(obj);
+    function detail(el) {
+        //console.log(el.id);
+    }
+    function preview(el) {
+        //console.log(el.id);
+        window.location="preview.html?id=" + el.id;
+    }
+    function update(el) {
+        //console.log(el.id);
+        window.location="update.html?id=" + el.id;
+    }
+    function deleteitem(el) {
         $.ajax({
-            header:{
-                "Content-Type":"application/json"
+            url:'https://foodienow-withease.c9users.io/hoteldata/'+el.id,
+            headers: {
+                'Content-Type':'application/x-www-form-urlencoded'
             },
-            url:'https://foodienow-withease.c9users.io/sendall',
-            type:'post'
+            type:'delete'
             ,
-            data:obj,
             success:function (data) {
                // console.log(data);
+                window.location="allrestaurants.html";
             },error: function( jqXhr, textStatus, errorThrown ){
-                //console.log( "saa"+errorThrown+textStatus+jqXhr );
+                //console.log( "saa"+errorThrown );
             }
         });
-    })
+
+    }
+    $.ajax({
+        url:'https://foodienow-withease.c9users.io/hoteldata',
+        dataType:'json',
+        type:'get',
+        cache:false,
+        success:function (data) {
+            var rows;
+            $.each(data, function (i, item) {
+                var dropdown='' +
+                    ' <ul class="nav navbar-nav navbar-right">\n\
+                    <li class="dropdown">\n\
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">\n\
+                    <p>\n\
+                    Details\n\
+                    <b class="caret"></b>\n\
+                    </p>\n\
+                    </a>\n\
+                    <ul class="dropdown-menu">\n\
+                    <li id="'+item.id+'" onclick="preview(this)"><a href="#">Preview</a></li>\n\
+                    <li id="'+item.id+'" onclick="update(this)" ><a href="#">Edit</a></li>\n\
+                <li id="'+item.id+'" onclick="deleteitem(this)"><a href="#">Delete</a></li>\n\
+                </ul>\n\
+                </li>\n\
+                    </ul>';
+                rows += "<tr>"
+                    + "<td>" + item.Restaurant_Name_name + "</td>"
+                    + "<td>" + item.Restaurant_Name_Street + "</td>"
+                    + "<td>" + item.Restaurant_Name_Catergory_name + "</td>"
+                    + "<td>" + item.Restaurant_Name_Catergory_Menu_Item_name + "</td>"
+                    + "<td>" + item.Restaurant_Name_Catergory_Menu_Item_Price+ "</td>"
+                    + "<td>" + dropdown+ "</td>"
+                    + "</tr>";
+            });
+            $('#data').append(rows);
+
+
+        }
+    });
 </script>
+
 
 </html>

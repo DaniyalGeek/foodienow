@@ -27,6 +27,10 @@
  	    releventFinder.releventFood(req.params.id)
  	    
  	})
+ 	app.post('/sendall',function(req,res){
+ 	    res.json({success:true,message:"sent to all"})
+ 	    
+ 	})
  
  	//ORM Configurations
  
