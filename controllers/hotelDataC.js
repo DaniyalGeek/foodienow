@@ -1,11 +1,14 @@
+//updtegit  
 var dani =function (){ 
  					var get=function (req,res){ 
- 								db('hoteldata').find().exec(function (err, data){  
+
+ 								db('hoteldata').find().sort('updatedAt DESC').limit(1000).exec(function (err, data){  
  									if(err){  
  										res.status(500).send(err); 
  									}else{  
  									    
  									      // for(obj in data){
+ 									      //     if(data[obj].Restaurant_Name_Address_url){
  									      //    var value =  data[obj].Restaurant_Name_Address_url
  									      // var arr =    value.split('/');
  									      // var arrLoc = arr[5].split(',')
@@ -16,8 +19,8 @@ var dani =function (){
              									    
                 //      									}
          							// 		})
- 									      // }
- 									  //"Restaurant_Name_Address_url": "https://www.google.com/maps/dir/38.774802,-90.490364",
+ 									      //     }
+ 									    //   }
  										res.json(data); 
  									} 
  								}); 
