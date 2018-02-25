@@ -24,7 +24,7 @@
  	app.use('/qflow',require('./routers/qflowR.js'))
  	app.use('/hoteldata',require('./routers/hotelDataR.js'))
  	app.get('/relevent/:id',function(req,res){
- 	    releventFinder.releventFood(req.params.id)
+ 	    releventFinder.releventFood(req.params.id,res)
  	    
  	})
  	app.post('/sendall',function(req,res){
@@ -194,33 +194,33 @@ function processPostback(event)
 	    	messenger.sendTextMessage(senderId, "Are there any foods or things you don't like such as avocados or spicy foods?");
        
 	}
-	if (quickReply.includes('direction_yes')) {
+	// if (quickReply.includes('direction_yes')) {
 	    	
- 			db('user').findOne({user_id: senderId}).exec(function(err,data){ 
- 				if(err){ 
- 					res.status(500).send(err); 
- 				}else{ 
+ //			db('user').findOne({user_id: senderId}).exec(function(err,data){ 
+ //				if(err){ 
+ //					res.status(500).send(err); 
+ //				}else{ 
  				    
- 				    console.log(data)
- 				     messenger.sendButtonsMessage(senderId, "Click here For direction", [
-                          {
-                            "type":"web_url",
-                            "url":data.likedObject.Restaurant_Name_Address_url+"/"+data.address_lat+","+data.address_long,
-                            "title":"Direction"
-                          }])
- 					  setTimeout(function(){
- 					   messenger.sendTextMessage(senderId, "Thanks for letting me find you something delicious. When you go, will you send me a picture of your meal and let me know what you thought? I'll be able to use this information to better recommend other meals in the future!");
+ //				    console.log(data)
+ //				     messenger.sendButtonsMessage(senderId, "Click here For direction", [
+ //                         {
+ //                           "type":"web_url",
+ //                           "url":data.likedObject.Restaurant_Name_Address_url+"/"+data.address_lat+","+data.address_long,
+ //                           "title":"Direction"
+ //                         }])
+ //					  setTimeout(function(){
+ //					   messenger.sendTextMessage(senderId, "Thanks for letting me find you something delicious. When you go, will you send me a picture of your meal and let me know what you thought? I'll be able to use this information to better recommend other meals in the future!");
 
- 					  },1000)
- 				}  
- 			});   
+ //					  },1000)
+ //				}  
+ //			});   
 	   
 	    
-	}
-		if (quickReply.includes('direction_no')) {
-	    		    	messenger.sendTextMessage(senderId, "Thanks for letting me find you something delicious. When you go, will you send me a picture of your meal and let me know what you thought? I'll be able to use this information to better recommend other meals in the future!");
+	// }
+	// 	if (quickReply.includes('direction_no')) {
+	//     		    	messenger.sendTextMessage(senderId, "Thanks for letting me find you something delicious. When you go, will you send me a picture of your meal and let me know what you thought? I'll be able to use this information to better recommend other meals in the future!");
     
-	}
+	// }
 	if (quickReply.includes('location_no')) {
 	    		    	messenger.sendTextMessage(senderId, "Oh! Sorry i am unable to move forward. Please restart bot and allow me your to get your location.");
                                db('qflow').update({user_id:senderId},{q1_turn:false,q2_turn:false,q3_turn:false,q4_turn:false,q1_ans:"",q2_ans:"",q3_ans:"",q4_ans:""}).exec(function (err, data){ })

@@ -1,4 +1,3 @@
-//updtegit  
 var dani =function (){ 
  					var get=function (req,res){ 
 
